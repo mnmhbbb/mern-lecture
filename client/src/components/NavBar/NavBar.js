@@ -34,9 +34,14 @@ const NavBar = () => {
             <Link to="/">메뉴1</Link>
           </li>
           {userData && userData.isAuth ? (
-            <li onClick={logOutBtn}>
-              <Link to="/">로그아웃</Link>
-            </li>
+            <>
+              <li>
+                <Link to="/upload">업로드</Link>
+              </li>
+              <li onClick={logOutBtn}>
+                <Link to="/">로그아웃</Link>
+              </li>
+            </>
           ) : (
             <>
               <li>

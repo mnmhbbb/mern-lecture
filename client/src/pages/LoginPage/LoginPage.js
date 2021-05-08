@@ -136,7 +136,7 @@ const LoginPage = (props) => {
                   </a> */}
                 </div>
                 <div className="items">
-                  <button disabled={isSubmitting} onSubmit={handleSubmit}>
+                  <button disabled={isSubmitting} onSubmit={handleSubmit} type="submit">
                     로그인
                   </button>
                 </div>

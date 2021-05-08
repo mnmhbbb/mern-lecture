@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { auth } from '../redux/user/userAPI';
+import PropTypes from 'prop-types';
 
 export const Auth = (ComposedClass, reload, adminRoute = null) => {
   function AuthenticationCheck(props) {
@@ -28,4 +29,8 @@ export const Auth = (ComposedClass, reload, adminRoute = null) => {
     return <ComposedClass {...props} user={user} />;
   }
   return AuthenticationCheck;
+};
+
+Auth.propTypes = {
+  reload: PropTypes.boolean,
 };

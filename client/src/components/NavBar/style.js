@@ -46,6 +46,7 @@ export const Hamburger = styled.div`
 export const MenuStyle = styled.ul`
   list-style: none;
   padding: 0;
+  margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,7 +55,7 @@ export const MenuStyle = styled.ul`
   ${media.md} {
     width: 100%;
     flex-direction: column;
-    z-index: 1;
+    z-index: 10000;
     position: absolute;
     top: 0;
     left: 0;

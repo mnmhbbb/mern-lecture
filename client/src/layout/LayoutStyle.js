@@ -5,7 +5,7 @@ const Container = styled.div`
   background-color: skyblue;
 
   .children {
-    padding: 5rem 0;
+    padding: 7rem 0 4rem;
     max-width: 600px;
     margin: 0 auto;
   }
