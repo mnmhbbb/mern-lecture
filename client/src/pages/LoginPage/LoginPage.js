@@ -27,17 +27,17 @@ const LoginPage = (props) => {
             if (response.payload.loginSuccess) {
               window.localStorage.setItem('userId', response.payload.userId);
               if (rememberMe === true) {
-                window.localStorage.setItem('rememberMe', values.id);
+                window.localStorage.setItem('rememberMe', values.email);
               } else {
                 localStorage.removeItem('rememberMe');
               }
               props.history.push('/');
             } else {
-              setFormErrorMessage('Check out your Account or Password again');
+              setFormErrorMessage('이메일 또는 비밀번호를 다시 입력하세요.');
             }
           })
           .catch((err) => {
-            setFormErrorMessage('Check out your Account or Password again');
+            setFormErrorMessage('이메일 또는 비밀번호를 다시 입력하세요.');
             setTimeout(() => {
               setFormErrorMessage('');
             }, 3000);
@@ -115,10 +115,8 @@ const LoginPage = (props) => {
                     <p
                       style={{
                         color: '#ff0000bf',
-                        fontSize: '0.7rem',
-                        border: '1px solid',
-                        padding: '1rem',
-                        borderRadius: '10px',
+                        fontSize: '0.9rem',
+                        fontWeight: 800,
                       }}
                     >
                       {formErrorMessage}
@@ -143,7 +141,7 @@ const LoginPage = (props) => {
                   </button>
                 </div>
                 <div className="items-register">
-                  이미 가입하셨나요? <a href="/register">회원가입</a>
+                  아직 회원이 아니신가요? <a href="/register">회원가입</a>
                 </div>
               </form>
             </FormStyle>

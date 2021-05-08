@@ -39,8 +39,10 @@ export const FormStyle = styled.div`
     button {
       width: 310px;
       margin: 0 auto;
-      height: 40px;
+      height: 45px;
       font-size: 18px;
+      font-weight: 800;
+      cursor: pointer;
     }
   }
 

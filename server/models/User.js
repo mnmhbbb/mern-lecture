@@ -17,6 +17,9 @@ const userSchema = mongoose.Schema({
     type: String,
     minglength: 5,
   },
+  termAll: {
+    tyle: Boolean,
+  },
   role: {
     type: Number,
     default: 0,
