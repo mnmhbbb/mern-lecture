@@ -5,6 +5,9 @@ export const media = {
 };
 
 export const Nav = styled.nav`
+  width: 100%;
+  position: fixed;
+  top: 0;
   background-color: #1e90ff;
   display: flex;
   justify-content: space-between;
@@ -29,11 +32,11 @@ export const Nav = styled.nav`
 export const Hamburger = styled.div`
   cursor: pointer;
   transition: all 200ms ease-in;
+  padding-right: 1.5rem;
 
   &:hover {
     color: #fff;
   }
-  padding: 0.5rem;
   display: none;
   ${media.md} {
     display: flex;
@@ -52,7 +55,7 @@ export const MenuStyle = styled.ul`
     width: 100%;
     flex-direction: column;
     z-index: 1;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     margin-top: 57px;
@@ -62,10 +65,10 @@ export const MenuStyle = styled.ul`
   }
 
   li {
-    padding: 0 0.5rem;
+    margin: 0 0.5rem;
 
     ${media.md} {
-      padding: 0.5rem;
+      margin: 0.5rem;
     }
 
     a {

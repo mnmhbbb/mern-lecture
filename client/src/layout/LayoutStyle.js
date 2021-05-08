@@ -5,6 +5,7 @@ const Container = styled.div`
   background-color: skyblue;
 
   .children {
+    padding: 5rem 0;
     max-width: 600px;
     margin: 0 auto;
   }
@@ -12,9 +13,11 @@ const Container = styled.div`
 
 const LayoutStyle = ({ children }) => {
   return (
-    <Container>
-      <div className="children">{children}</div>
-    </Container>
+    <>
+      <Container>
+        <div className="children">{children}</div>
+      </Container>
+    </>
   );
 };
 

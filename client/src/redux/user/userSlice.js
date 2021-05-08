@@ -25,20 +25,20 @@ const userSlice = createSlice({
     [logoutUser.pending]: (state) => {
       state.status = 'loading';
     },
-    [logoutUser.fulfilled]: (state, { payload }) => {
+    [logoutUser.fulfilled]: (state) => {
       state.status = 'success';
       state.userData = null;
       state.loginSuccess = null;
     },
     [auth.pending]: (state) => {
-      state.status = 'loading';
+      state.status = 'auth loading';
     },
     [auth.fulfilled]: (state, { payload }) => {
-      state.status = 'success';
+      state.status = 'auth success';
       state.userData = payload;
     },
   },
 });
 
-export const selectUser = (state) => state.user.useData;
+export const selectUser = (state) => state.user.userData;
 export default userSlice.reducer;
