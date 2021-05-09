@@ -9,7 +9,7 @@ const ImageSlide = styled.div`
 const ImageSlider = (props) => {
   return (
     <ImageSlide>
-      <Carousel autoplay>
+      <Carousel>
         {props.images.map((img, index) => (
           <div key={index}>
             <img src={`http://localhost:5000/${img}`} alt={img} />
