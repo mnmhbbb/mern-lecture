@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   background-color: skyblue;
+  height: 100%;
 
   .children {
     border: 1px solid black;
@@ -17,6 +18,7 @@ const LayoutStyle = ({ children }) => {
     <>
       <Container>
         <div className="children">{children}</div>
+        <footer>© MNMHBBB, Co., hello</footer>
       </Container>
     </>
   );

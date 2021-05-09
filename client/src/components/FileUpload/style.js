@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-const media = {
-  md: '@media (max-width: 768px)',
-  se: '@media (max-width: 320px)',
-};
+import { media } from '../NavBar/style';
 
 export const UploadStyle = styled.div`
   /* border: 1px solid black; */

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const MainStyle = styled.div`
   width: 100%;
+
   h1 {
     text-align: center;
     font-weight: 800;

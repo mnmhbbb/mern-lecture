@@ -30,13 +30,13 @@ const NavBar = () => {
           <MenuOutlined />
         </Hamburger>
         <MenuStyle isOpen={isOpen} onClick={showSidebar}>
-          <li>
-            <Link to="/">메뉴1</Link>
-          </li>
           {userData && userData.isAuth ? (
             <>
               <li>
-                <Link to="/upload">업로드</Link>
+                <Link to="/">관심목록</Link>
+              </li>
+              <li>
+                <Link to="/upload">상품 올리기</Link>
               </li>
               <li onClick={logOutBtn}>
                 <Link to="/">로그아웃</Link>

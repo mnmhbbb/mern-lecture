@@ -1,25 +1,61 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import LayoutStyle from '../../layout/LayoutStyle';
 import axios from 'axios';
 import { Col, Row } from 'antd';
 import { MainStyle, ProductList } from './style';
 import ImageSlider from '../../components/ImageSlider/ImageSlider';
+import { Category, Price } from './Data';
+import CheckboxList from '../../components/Checkbox/CheckboxList';
+import RadioboxList from '../../components/Radiobox/RadioboxList';
+import SearchFeature from '../../components/SearchFeature/SearchFeature';
 
 const MainPage = () => {
   const [products, setProducts] = useState([]);
+  const [Skip, setSkip] = useState(0);
+  const [limit, setLimit] = useState(3);
+  const [postSize, setPostSize] = useState(0);
+  const [Filters, setFilters] = useState({
+    category: [],
+    price: [],
+  });
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const getProduct = useCallback(
+    (body) => {
+      axios.post('api/product/products', body).then((response) => {
+        if (response.data.success) {
+          if (body.loadMore) {
+            setProducts([...products, ...response.data.productInfo]);
+          } else {
+            setProducts(response.data.productInfo);
+          }
+          setPostSize(response.data.postSize);
+        } else {
+          alert('상품 목록을 가져오지 못 했습니다.');
+        }
+      });
+    },
+    [products],
+  );
 
   useEffect(() => {
-    // let body = {};
-
-    axios.post('api/product/products').then((response) => {
-      if (response.data.success) {
-        console.log(response.data);
-        setProducts(response.data.productInfo);
-      } else {
-        alert('상품 목록을 가져오지 못 했습니다.');
-      }
-    });
+    let body = {
+      skip: Skip,
+      limit,
+    };
+    getProduct(body);
   }, []);
+
+  const loadMore = () => {
+    let skip = Skip + limit;
+    let body = {
+      skip,
+      limit,
+      loadMore: true,
+    };
+    getProduct(body);
+    setSkip(skip);
+  };
 
   const renderList = products.map((prod, index) => {
     return (
@@ -35,17 +71,85 @@ const MainPage = () => {
     );
   });
 
+  const showFilteredResults = useCallback(
+    (filters) => {
+      const body = {
+        skip: 0,
+        limit,
+        filters: filters,
+      };
+      getProduct(body);
+      setSkip(0);
+    },
+    [getProduct, limit],
+  );
+
+  // filter 유저가 체크한 목록들이 담겨져 있음
+  const handleFilter = useCallback(
+    (filters, key) => {
+      const newFilters = { ...Filters };
+      newFilters[key] = filters;
+      showFilteredResults(newFilters);
+
+      if (key === 'price') {
+        let priceValue = handlePrice(filters);
+        newFilters[key] = priceValue; //[0, 9999]
+      }
+
+      showFilteredResults(newFilters);
+      setFilters(newFilters);
+    },
+    [showFilteredResults, Filters],
+  );
+
+  const handlePrice = (value) => {
+    const data = Price;
+    let arr = [];
+    for (let key in data) {
+      if (data[key]._id === Number(value)) {
+        arr = data[key].array; //[0, 9999]
+      }
+    }
+
+    return arr;
+  };
+
+  const updateSearch = useCallback(
+    (newSearch) => {
+      let body = {
+        skip: 0,
+        limit,
+        filters: Filters,
+        searchTerm: newSearch,
+      };
+      setSkip(0);
+      setSearchTerm(newSearch);
+      getProduct(body);
+    },
+    [limit, Filters, getProduct],
+  );
+
   return (
     <LayoutStyle>
       <MainStyle>
         <h1>~상품 목록~</h1>
-        <div>
-          {/* 필터 */}
-          {/* 검색 */}
-          {/* 목록 */}
-          <Row gutter={[16, 16]}>{renderList}</Row>
-          <button>더보기</button>
-        </div>
+        <Row gutter={[16, 16]}>
+          <Col lg={8} md={13} xs={24}>
+            <SearchFeature updateSearch={updateSearch} />
+          </Col>
+          <Col lg={8} md={12} xs={24}>
+            <CheckboxList
+              list={Category}
+              handleFilter={(filters) => handleFilter(filters, 'category')}
+            />
+          </Col>
+          <Col lg={8} md={12} xs={24}>
+            <RadioboxList list={Price} handleFilter={(filters) => handleFilter(filters, 'price')} />
+          </Col>
+        </Row>
+
+        <Row gutter={[16, 16]}>{renderList}</Row>
+        {postSize >= limit && <button onClick={loadMore}>더보기</button>}
       </MainStyle>
     </LayoutStyle>
   );

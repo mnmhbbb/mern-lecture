@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const media = {
   md: '@media (max-width: 768px)',
+  se: '@media (max-width: 320px)',
 };
 
 export const Nav = styled.nav`
