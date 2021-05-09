@@ -12,8 +12,10 @@ var storage = multer.diskStorage({
   },
 });
 
+// 받아온 파일을 저장
 var upload = multer({ storage: storage }).single('file');
 
+// 저장한 정보를 프론트에 전달
 router.post('/image', (req, res) => {
   upload(req, res, (err) => {
     if (err) {
@@ -33,6 +35,16 @@ router.post('/', (req, res) => {
     if (err) return res.status(400).json({ success: false, err });
     return res.status(200).json({ success: true });
   });
+});
+
+router.post('/products', (req, res) => {
+  // product collection에 들어있는 모든 상품 정보 가져오기
+  Product.find()
+    .populate('writer')
+    .exec((err, productInfo) => {
+      if (err) return res.status(400).json({ success: false, err });
+      res.status(200).json({ success: true, productInfo });
+    });
 });
 
 module.exports = router;

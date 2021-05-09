@@ -17,7 +17,6 @@ const FileUpload = ({ updateImages }) => {
 
       axios.post('api/product/image', formData, config).then((response) => {
         if (response.data.success) {
-          console.log(response.data);
           setImages([...images, response.data.filePath]);
           updateImages([...images, response.data.filePath]);
         } else {
@@ -48,7 +47,7 @@ const FileUpload = ({ updateImages }) => {
               <input {...getInputProps()} />
               <div>
                 <CameraOutlined />
-                <p>{images.length} / 10</p>
+                <p>{images.length}개의 사진</p>
               </div>
             </div>
           </section>

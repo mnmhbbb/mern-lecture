@@ -5,8 +5,9 @@ const Container = styled.div`
   background-color: skyblue;
 
   .children {
+    border: 1px solid black;
     padding: 7rem 0 4rem;
-    max-width: 600px;
+    max-width: 1200px;
     margin: 0 auto;
   }
 `;

@@ -5,6 +5,7 @@ export const media = {
 };
 
 export const Nav = styled.nav`
+  z-index: 100;
   width: 100%;
   position: fixed;
   top: 0;
