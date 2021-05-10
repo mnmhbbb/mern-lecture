@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { media } from '../NavBar/style';
 
 export const UploadStyle = styled.div`
-  /* border: 1px solid black; */
   width: 600px;
   height: 300px;
   margin: 1rem auto;

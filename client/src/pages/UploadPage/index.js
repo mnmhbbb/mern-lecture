@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useCallback, useState } from 'react';
-import FileUpload from '../../components/FileUpload/FileUpload';
+import FileUpload from '../../components/FileUpload';
 import { useInput } from '../../hooks/useInput';
-import LayoutStyle from '../../layout/LayoutStyle';
+import LayoutStyle from '../../layout';
 import { UploadStyle } from './style';
 
 const category = [

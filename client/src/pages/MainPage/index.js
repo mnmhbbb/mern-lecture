@@ -1,13 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import LayoutStyle from '../../layout/LayoutStyle';
+import LayoutStyle from '../../layout';
 import axios from 'axios';
 import { Col, Row } from 'antd';
 import { MainStyle, ProductList } from './style';
-import ImageSlider from '../../components/ImageSlider/ImageSlider';
+import ImageSlider from '../../components/ImageSlider';
 import { Category, Price } from './Data';
-import CheckboxList from '../../components/Checkbox/CheckboxList';
-import RadioboxList from '../../components/Radiobox/RadioboxList';
-import SearchFeature from '../../components/SearchFeature/SearchFeature';
+import CheckboxList from '../../components/Checkbox';
+import RadioboxList from '../../components/Radiobox';
+import SearchFeature from '../../components/SearchFeature';
 
 const MainPage = () => {
   const [products, setProducts] = useState([]);
@@ -59,14 +59,16 @@ const MainPage = () => {
 
   const renderList = products.map((prod, index) => {
     return (
-      <Col lg={6} md={8} xs={24} key={index}>
-        <ProductList>
-          <ImageSlider images={prod.images} />
-          <div className="description">
-            <strong>{prod.title}</strong>
-            <p>{prod.price}원</p>
-          </div>
-        </ProductList>
+      <Col lg={6} md={8} sm={12} xs={24} key={index}>
+        <a href={`/${prod._id}`}>
+          <ProductList>
+            <ImageSlider images={prod.images} />
+            <div className="description">
+              <strong>{prod.title}</strong>
+              <p>{prod.price}원</p>
+            </div>
+          </ProductList>
+        </a>
       </Col>
     );
   });

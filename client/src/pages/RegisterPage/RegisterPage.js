@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../redux/user/userAPI';
-import LayoutStyle from '../../layout/LayoutStyle';
+import LayoutStyle from '../../layout';
 import { Feedback, FormStyle } from './style';
 
 const RegisterPage = (props) => {
