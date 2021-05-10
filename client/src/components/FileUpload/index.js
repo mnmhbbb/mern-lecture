@@ -54,7 +54,7 @@ const FileUpload = ({ updateImages }) => {
       <Img>
         {images.map((img, index) => (
           <div key={index} onClick={() => deleteHandler(img)}>
-            <img src={`http://localhost:5000/${img}`} alt={`${img}`} />
+            <img src={`https://mern-usedshop.herokuapp.com:5000/${img}`} alt={`${img}`} />
           </div>
         ))}
       </Img>
