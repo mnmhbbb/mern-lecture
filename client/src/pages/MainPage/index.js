@@ -12,7 +12,7 @@ import SearchFeature from '../../components/SearchFeature';
 const MainPage = () => {
   const [products, setProducts] = useState([]);
   const [Skip, setSkip] = useState(0);
-  const [limit, setLimit] = useState(3);
+  const [limit, setLimit] = useState(4);
   const [postSize, setPostSize] = useState(0);
   const [Filters, setFilters] = useState({
     category: [],
