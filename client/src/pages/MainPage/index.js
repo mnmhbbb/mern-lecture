@@ -65,7 +65,7 @@ const MainPage = () => {
             <ImageSlider images={prod.images} />
             <div className="description">
               <strong>{prod.title}</strong>
-              <p>{prod.price}원</p>
+              <p>{prod.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
             </div>
           </ProductList>
         </a>
@@ -134,7 +134,7 @@ const MainPage = () => {
   return (
     <LayoutStyle>
       <MainStyle>
-        <h1>~상품 목록~</h1>
+        <h1>상품 목록</h1>
         <Row className="selectGroup">
           <Col lg={24} md={24} xs={24} className="search">
             <SearchFeature updateSearch={updateSearch} />
@@ -152,7 +152,7 @@ const MainPage = () => {
 
         <Row gutter={[16, 16]}>{renderList}</Row>
 
-        {postSize >= limit && <button onClick={loadMore}>더보기</button>}
+        <div className="btn">{postSize >= limit && <button onClick={loadMore}>더보기</button>}</div>
       </MainStyle>
     </LayoutStyle>
   );

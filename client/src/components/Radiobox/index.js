@@ -1,5 +1,12 @@
 import { Collapse, Radio } from 'antd';
 import React, { useCallback, useState } from 'react';
+import styled from 'styled-components';
+
+const RadioStyle = styled.div`
+  .ant-collapse-content > .ant-collapse-content-box {
+    padding: 36px;
+  }
+`;
 
 const RadioboxList = (props) => {
   const [radioValue, setRadioValue] = useState(0);
@@ -23,7 +30,7 @@ const RadioboxList = (props) => {
   );
 
   return (
-    <div>
+    <RadioStyle>
       <Collapse defaultActiveKey={['0']}>
         <Collapse.Panel header="가격 선택" key="1">
           <Radio.Group onChange={radioChange} value={radioValue}>
@@ -31,7 +38,7 @@ const RadioboxList = (props) => {
           </Radio.Group>
         </Collapse.Panel>
       </Collapse>
-    </div>
+    </RadioStyle>
   );
 };
 

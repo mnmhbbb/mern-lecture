@@ -4,7 +4,7 @@ import { ProductImg } from './style';
 
 const ProductImage = (props) => {
   return (
-    <ProductImg style={{ border: '2px solid black' }}>
+    <ProductImg>
       <Carousel className="crs">
         {props.detail &&
           props.detail.map((img, index) => (

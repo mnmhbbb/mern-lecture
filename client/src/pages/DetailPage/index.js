@@ -4,6 +4,7 @@ import LayoutStyle from '../../layout';
 import ProductImage from '../../components/ProductImage';
 import ProductInfo from '../../components/ProductInfo';
 import { Row, Col } from 'antd';
+import { DetailStyle } from './style';
 
 const DetailPage = (props) => {
   const productId = props.match.params.productId;
@@ -23,9 +24,9 @@ const DetailPage = (props) => {
 
   return (
     <LayoutStyle>
-      <section>
+      <DetailStyle>
         <h1>상품 정보</h1>
-        <Row gutter={[16, 16]}>
+        <Row>
           <Col lg={12} sm={24}>
             <ProductImage detail={Product.images} />
           </Col>
@@ -33,7 +34,7 @@ const DetailPage = (props) => {
             <ProductInfo detail={Product} />
           </Col>
         </Row>
-      </section>
+      </DetailStyle>
     </LayoutStyle>
   );
 };

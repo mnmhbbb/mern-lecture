@@ -42,15 +42,13 @@ const FileUpload = ({ updateImages }) => {
     <UploadStyle>
       <Dropzone onDrop={dropHandler}>
         {({ getRootProps, getInputProps }) => (
-          <section>
-            <div {...getRootProps()}>
-              <input {...getInputProps()} />
-              <div>
-                <CameraOutlined />
-                <p>{images.length}개의 사진</p>
-              </div>
+          <div {...getRootProps()} className="files">
+            <input {...getInputProps()} />
+            <div>
+              <CameraOutlined />
+              <p>{images.length}개의 사진</p>
             </div>
-          </section>
+          </div>
         )}
       </Dropzone>
       <Img>

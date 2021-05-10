@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import NavBar from './NavBar';
 import { Route, Switch } from 'react-router-dom';
 import MainPage from '../pages/MainPage';
-import RegisterPage from '../pages/RegisterPage/RegisterPage';
+import RegisterPage from '../pages/RegisterPage';
 import LoginPage from '../pages/LoginPage';
 import { Auth } from '../hoc/auth';
 import UploadPage from '../pages/UploadPage';

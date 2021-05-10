@@ -6,6 +6,10 @@ const InputStyle = styled.input`
   height: 46px;
   padding: 1rem;
   border: none;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const SearchFeature = (props) => {

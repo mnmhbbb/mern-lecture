@@ -8,7 +8,7 @@ export const UploadStyle = styled.div`
 
   h2 {
     font-size: 30px;
-    font-weight: 800;
+    font-weight: 700;
   }
 
   .items {
@@ -19,21 +19,29 @@ export const UploadStyle = styled.div`
       width: 100%;
       margin-bottom: 0.5rem;
       border: none;
-      height: 30px;
+      height: 35px;
+      padding: 0.5rem;
     }
 
     textarea {
       width: 100%;
+      padding: 0.5rem;
       margin-bottom: 0.5rem;
+      border: none;
+    }
+
+    textarea:focus {
+      outline: none;
     }
 
     .cate {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-top: 1rem;
       label {
         margin-right: 1rem;
-        font-weight: 800;
+        font-weight: 700;
         font-size: 16px;
         margin-bottom: 0.5rem;
       }
@@ -41,6 +49,11 @@ export const UploadStyle = styled.div`
         width: 200px;
         height: 30px;
         margin-bottom: 0.5rem;
+        border: none;
+        cursor: pointer;
+      }
+      select:focus {
+        outline: none;
       }
     }
 

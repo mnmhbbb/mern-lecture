@@ -14,7 +14,7 @@ export const UploadStyle = styled.div`
     height: 200px;
   }
 
-  section {
+  .files {
     width: 100px;
     height: 100px;
     display: flex;

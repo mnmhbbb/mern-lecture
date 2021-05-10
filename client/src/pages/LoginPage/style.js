@@ -22,14 +22,21 @@ export const FormStyle = styled.div`
   flex-direction: column;
   align-items: center;
 
+  h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+
   .items {
     width: 100%;
     margin-bottom: 1rem;
 
     input {
       width: 300px;
-      height: 30px;
+      height: 35px;
       font-size: 16px;
+      padding: 0.5rem;
     }
 
     .input-feedback {
@@ -47,7 +54,7 @@ export const FormStyle = styled.div`
   }
 
   a {
-    color: black;
+    color: #a164a1;
   }
 
   .items-rememberME {
@@ -55,6 +62,7 @@ export const FormStyle = styled.div`
     align-items: center;
     justify-content: flex-start;
     margin-bottom: 1rem;
+    cursor: pointer;
 
     input {
       zoom: 1.5;

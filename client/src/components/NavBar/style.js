@@ -22,7 +22,7 @@ export const Nav = styled.nav`
     text-decoration: none;
     color: black;
     font-size: 16px;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     span {
       font-size: 24px;
       transition: all 200ms ease-in;
@@ -37,6 +37,7 @@ export const Hamburger = styled.div`
   cursor: pointer;
   transition: all 200ms ease-in;
   padding-right: 1.5rem;
+  font-size: 20px;
 
   &:hover {
     color: #be32be;
@@ -54,7 +55,7 @@ export const MenuStyle = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 1000ms ease-in;
+  transition: all 800ms ease-in;
 
   ${media.md} {
     width: 100%;
@@ -64,19 +65,21 @@ export const MenuStyle = styled.ul`
     top: 0;
     left: 0;
     margin-top: 57px;
-    opacity: 0.8;
+    opacity: 0.9;
     background-color: #dcdcdc;
     display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
   }
 
   li {
     margin: 0 0.5rem;
+    font-size: 20px;
 
     ${media.md} {
       margin: 0.5rem;
     }
 
     a {
+      color: #161616;
       transition: all 200ms ease-in;
     }
     a:hover {

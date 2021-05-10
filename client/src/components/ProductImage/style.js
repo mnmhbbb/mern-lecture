@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
 export const ProductImg = styled.div`
-  margin: 1rem;
   width: 100%;
   .crs {
-    border: 1px solid red;
   }
 
   .crsImg {
@@ -23,5 +21,9 @@ export const ProductImg = styled.div`
     color: #646464;
     width: 15px;
     height: 15px;
+  }
+
+  .ant-carousel {
+    padding: 2rem;
   }
 `;

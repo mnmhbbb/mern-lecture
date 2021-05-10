@@ -7,6 +7,12 @@ export const FormStyle = styled.div`
   flex-direction: column;
   align-items: center;
 
+  h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+
   fieldset {
     width: 300px;
     margin: 0 auto;
@@ -21,6 +27,7 @@ export const FormStyle = styled.div`
     label {
       font-size: 18px;
       font-weight: 800;
+      margin-bottom: 0.5rem;
     }
 
     div {
@@ -30,14 +37,19 @@ export const FormStyle = styled.div`
 
   input {
     max-width: 300px;
-    height: 30px;
+    height: 35px;
     font-size: 16px;
+    border: none;
+    padding: 0.5rem;
+  }
+
+  input:focus {
+    outline: none;
   }
 
   button {
-    display: block;
     width: 300px;
-    margin: 0 auto;
+    margin: 1rem auto;
     height: 45px;
     font-size: 18px;
     font-weight: 800;

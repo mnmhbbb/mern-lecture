@@ -5,17 +5,36 @@ export const MainStyle = styled.div`
 
   h1 {
     text-align: center;
-    font-weight: 800;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 2rem;
   }
 
-  button {
-    width: 300px;
-    font-weight: 800;
-    margin: 2rem auto;
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      width: 150px;
+      height: 56px;
+      margin-top: 4rem;
+      line-height: 17px;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 32px;
+      border: none;
+      color: #fff;
+      background-color: #a164a1;
+      transition: all 400ms ease-in;
+    }
+
+    button:hover {
+      background-color: #fff;
+      color: #a164a1;
+    }
   }
 
   .selectGroup {
-    /* border: 2px solid red; */
     width: 100%;
     display: flex;
     align-items: center;
@@ -41,8 +60,9 @@ export const ProductList = styled.div`
     width: 100%;
     font-size: 20px;
     text-align: center;
-    background: #e5e5e5;
+    background: #fff;
     padding: 0.5rem;
+    color: #161616;
     p {
       margin: 0;
     }

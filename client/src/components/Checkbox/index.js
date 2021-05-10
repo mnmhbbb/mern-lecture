@@ -23,23 +23,23 @@ const CheckboxList = (props) => {
   const renderCheckbox = () =>
     props.list &&
     props.list.map((value, index) => (
-      <CateStyle key={index} className="check">
+      <div key={index} className="check">
         <Checkbox
           onChange={() => checkToggle(value._id)}
           checked={checked.indexOf(value._id) === -1 ? false : true}
         />
         <span>{value.name}</span>
-      </CateStyle>
+      </div>
     ));
 
   return (
-    <div>
+    <CateStyle>
       <Collapse defaultActiveKey={['0']}>
         <Collapse.Panel header="카테고리 선택" key="1">
           {renderCheckbox()}
         </Collapse.Panel>
       </Collapse>
-    </div>
+    </CateStyle>
   );
 };
 
