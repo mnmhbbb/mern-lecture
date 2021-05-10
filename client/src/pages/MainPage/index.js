@@ -135,22 +135,23 @@ const MainPage = () => {
     <LayoutStyle>
       <MainStyle>
         <h1>~상품 목록~</h1>
-        <Row gutter={[16, 16]}>
-          <Col lg={8} md={13} xs={24}>
+        <Row className="selectGroup">
+          <Col lg={24} md={24} xs={24} className="search">
             <SearchFeature updateSearch={updateSearch} />
           </Col>
-          <Col lg={8} md={12} xs={24}>
+          <Col lg={12} md={12} xs={24} className="category">
             <CheckboxList
               list={Category}
               handleFilter={(filters) => handleFilter(filters, 'category')}
             />
           </Col>
-          <Col lg={8} md={12} xs={24}>
+          <Col lg={12} md={12} xs={24} className="price">
             <RadioboxList list={Price} handleFilter={(filters) => handleFilter(filters, 'price')} />
           </Col>
         </Row>
 
         <Row gutter={[16, 16]}>{renderList}</Row>
+
         {postSize >= limit && <button onClick={loadMore}>더보기</button>}
       </MainStyle>
     </LayoutStyle>

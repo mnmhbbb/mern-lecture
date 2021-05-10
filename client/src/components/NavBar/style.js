@@ -6,11 +6,13 @@ export const media = {
 };
 
 export const Nav = styled.nav`
+  border-top: 1px solid #161616;
+  border-bottom: 1px solid #161616;
   z-index: 100;
   width: 100%;
   position: fixed;
   top: 0;
-  background-color: #1e90ff;
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,7 +28,7 @@ export const Nav = styled.nav`
       transition: all 200ms ease-in;
     }
     span:hover {
-      color: #fff;
+      color: #be32be;
     }
   }
 `;
@@ -37,7 +39,7 @@ export const Hamburger = styled.div`
   padding-right: 1.5rem;
 
   &:hover {
-    color: #fff;
+    color: #be32be;
   }
   display: none;
   ${media.md} {
@@ -63,7 +65,7 @@ export const MenuStyle = styled.ul`
     left: 0;
     margin-top: 57px;
     opacity: 0.8;
-    background-color: #e5e5e5;
+    background-color: #dcdcdc;
     display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
   }
 
@@ -78,7 +80,7 @@ export const MenuStyle = styled.ul`
       transition: all 200ms ease-in;
     }
     a:hover {
-      color: #fff;
+      color: #be32be;
     }
   }
 `;

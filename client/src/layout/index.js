@@ -1,14 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.div`
-  background-color: skyblue;
+const Container = styled.section`
+  background-color: #ebebeb;
+  color: #161616;
 
+  /* @media (max-width: 820px) {
+    max-width: 100%;
+  } */
   .children {
-    border: 1px solid black;
-    padding: 7rem 0 4rem;
     max-width: 1200px;
     margin: 0 auto;
+    border: 1px solid black;
+    padding: 7rem 0 4rem;
   }
 `;
 
@@ -17,8 +21,8 @@ const LayoutStyle = ({ children }) => {
     <>
       <Container>
         <div className="children">{children}</div>
-        <footer>© MNMHBBB, Co., hello</footer>
       </Container>
+      <footer>© MNMHBBB, Co., hello</footer>
     </>
   );
 };
