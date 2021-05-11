@@ -20,7 +20,7 @@ mongoose
 app.use(cors());
 app.use(
   cors({
-    origin: 'https://mern-usedshop.herokuapp.com',
+    origin: 'http://localhost:3000',
     credentials: true,
   }),
 );
@@ -29,9 +29,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.use('/users', require('./routes/users'));
+app.use('/api/users', require('./routes/users'));
 app.use('/uploads', express.static('uploads'));
-app.use('/product', require('./routes/product'));
+app.use('/api/product', require('./routes/product'));
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
