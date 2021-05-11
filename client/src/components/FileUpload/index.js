@@ -3,6 +3,7 @@ import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import { CameraOutlined } from '@ant-design/icons';
 import { Img, UploadStyle } from './style';
+import { BACKURL } from '../url';
 
 const FileUpload = ({ updateImages }) => {
   const [images, setImages] = useState([]);
@@ -19,6 +20,7 @@ const FileUpload = ({ updateImages }) => {
         if (response.data.success) {
           setImages([...images, response.data.filePath]);
           updateImages([...images, response.data.filePath]);
+          console.log(response.data);
         } else {
           alert('Error');
         }
@@ -54,7 +56,7 @@ const FileUpload = ({ updateImages }) => {
       <Img>
         {images.map((img, index) => (
           <div key={index} onClick={() => deleteHandler(img)}>
-            <img src={`http://localhost:5000/${img}`} alt={`${img}`} />
+            <img src={`${BACKURL}/${img}`} alt={`${img}`} />
           </div>
         ))}
       </Img>
