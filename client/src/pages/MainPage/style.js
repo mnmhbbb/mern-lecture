@@ -49,7 +49,6 @@ export const MainStyle = styled.div`
 `;
 
 export const ProductList = styled.div`
-  /* width: 250px; */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -70,7 +69,7 @@ export const ProductList = styled.div`
 
   img {
     display: block;
-    width: 250px;
+    width: 100%;
     height: 200px;
   }
 `;

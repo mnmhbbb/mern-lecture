@@ -9,7 +9,7 @@ const ProductImage = (props) => {
         {props.detail &&
           props.detail.map((img, index) => (
             <div key={index} className="crsImg">
-              <img src={`https://localhost:5000/${img}`} alt={img} />
+              <img src={`http://localhost:5000/${img}`} alt={img} />
             </div>
           ))}
       </Carousel>
