@@ -18,6 +18,12 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use(cors());
+app.use(
+  cors({
+    origin: 'https://mern-usedshop.herokuapp.com',
+    credentials: true,
+  }),
+);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
