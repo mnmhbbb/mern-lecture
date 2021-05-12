@@ -26,7 +26,69 @@
 
 ## 4. 구현 방식
 
-### 4.1 이미지 미리보기 및 업로드
+### 4.1 리덕스 툴킷
+
+- redux toolkit은 redux-thunk를 기반으로 사용하며, 기본으로 redux-dev-tool을 제공하기 때문에 더이상 설치해야 할 라이브러리가 없다는 장점이 있다.
+- CRA로 프로젝트를 생성할 때 처음부터 리덕스로 시작할 수 있다.
+- `npx create-react-app --template redux`
+- 동일하게 store를 생성하는데, `configureStore`를 사용한다.
+
+```javascript
+import { configureStore } from '@reduxjs/toolkit';
+import userReducer from '../redux/user/userSlice';
+
+export const store = configureStore({
+  reducer: {
+    user: userReducer,
+  },
+});
+```
+
+- `createAsyncThunk`로 비동기 액션을 만들 수 있다.
+
+```javascript
+// userAPI.js
+export const registerUser = createAsyncThunk('user/registerUser', async (dataToSubmit) => {
+  const request = await axios
+    .post('api/users/register', dataToSubmit)
+    .then((response) => response.data);
+  return request;
+});
+```
+
+- `extraReducers`를 사용하면 비동기 액션에 대해 `pending`, `fulfilled`, `rejected` 상태로 구분할 수 있다.
+
+```javascript
+// userSlice.js
+const userSlice = createSlice({
+  name: 'user',
+  initialState: {
+    userData: '',
+  },
+  reducers: {},
+  extraReducers: {
+    [registerUser.pending]: (state) => {
+      state.status = 'loading';
+    },
+    [registerUser.fulfilled]: (state, { payload }) => {
+      state.register = payload;
+      state.status = 'success';
+    },
+    ...
+
+export const selectUser = (state) => state.user.userData;
+export default userSlice.reducer;
+```
+
+- `state`를 내보내기 하면 컴포넌트에서 간단하게 접근할 수 있게 된다
+
+```javascript
+// NavBar.js
+import { selectUser } from '../../redux/user/userSlice';
+const userData = useSelector(selectUser);
+```
+
+### 4.2 이미지 미리보기 및 업로드
 
 - 글을 작성할 때 이미지를 첨부할 수 있는데, `Dropzone` 공식 문서에 나와있는 코드를 참고하여 아래의 코드로 틀을 만들었다.
 
@@ -133,7 +195,7 @@ const deleteHandler = useCallback(
 );
 ```
 
-### 4.2 체크박스, 라디오박스 필터링
+### 4.3 체크박스, 라디오박스 필터링
 
 - 메인페이지에 바로 상품 목록들이 보여지는데, 이 부분이 가장 중요하다.
 - 기본적으로 데이터베이스에 있는 목록들을 일정량 가져오고, 더보기 버튼 클릭 시에 추가로 가져오고, 유저가 선택한 목록만 가져오기도 하기 때문이다.
@@ -154,7 +216,7 @@ router.post('/products', (req, res) => {
 - 우선, 데이터베이스에 있는 모든 정보를 가져오려면 위 방식으로 데이터를 보내주면 된다.
 - 마찬가지로 이 데이터를 state에 담아서 map으로 하나씩 화면에 구현하면 되는데, 여기서 각종 변수를 추가해야 한다.
 
-### 4.3 가격 콤마 넣기
+### 4.4 가격 콤마 넣기
 
 - 상품을 클릭했을 때 상세 정보 페이지에 담기는 컴포넌트인데, 받아온 가격 데이터에 콤마를 붙여야 했다.
 - 검색을 통해 정규표현식 코드를 알게 되어서 다음과 같이 적용하였다.
