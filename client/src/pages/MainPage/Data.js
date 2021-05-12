@@ -49,8 +49,8 @@ export const Price = [
   },
   {
     _id: 1,
-    name: '0 ~ 9,999원',
-    array: [0, 9999],
+    name: '1 ~ 9,999원',
+    array: [1, 9999],
   },
   {
     _id: 2,
