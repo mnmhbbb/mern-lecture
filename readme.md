@@ -7,6 +7,8 @@
 ## 1. 이름: 중고 마켓
 
 - 중고 물건을 사고 팔 수 있는 사이트를 목표로 진행 중이다.
+- ![preview1](./preview/shop1.gif)
+- ![preview2](./preview/shop2.gif)
 
 ## 2. 기능 및 특징:
 
@@ -90,6 +92,7 @@ const userData = useSelector(selectUser);
 
 ### 4.2 이미지 미리보기 및 업로드
 
+- ![preview4](./preview/shop4.gif)
 - 글을 작성할 때 이미지를 첨부할 수 있는데, `Dropzone` 공식 문서에 나와있는 코드를 참고하여 아래의 코드로 틀을 만들었다.
 
 ```javascript
@@ -197,6 +200,7 @@ const deleteHandler = useCallback(
 
 ### 4.3 체크박스, 라디오박스 필터링
 
+- ![preview3](./preview/shop3.gif)
 - 메인페이지에 바로 상품 목록들이 보여지는데, 이 부분이 가장 중요하다.
 - 기본적으로 데이터베이스에 있는 목록들을 일정량 가져오고, 더보기 버튼 클릭 시에 추가로 가져오고, 유저가 선택한 목록만 가져오기도 하기 때문이다.
 - 그래서 많이 까다로웠고, 코드가 길어지는 단점이 생겨서 리덕스를 도입할지, 다른 효율적인 방법을 모색하고 있다.
